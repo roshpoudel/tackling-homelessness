@@ -7,13 +7,15 @@ from data import tab_2_graphs
 # import sys
 # sys.path.append('DASHBOARD/src/utils')
 
+def style_dropdown():
+    return {'width': '500px'}
 
 class Questions:
     LOT_HOMELESS = [
         "LOT Homeless"]
     HEALTH_SCALE = [
-        "Would you say your health in general is excellent, very good, good, fair or poor?"]
-    RISKS_AND_BARRIERS = ['Do you or anyone in your household(who is experiencing homelessness or housing stability with you) have high blood pressure?',
+        "Health Scale"]
+    RISKS_AND_BARRIERS = ['HBP Flag',
                           'Income',
                           'Evicted',
                           'Primary Language English',
@@ -90,7 +92,7 @@ def first_tab_layout() -> html.Div:
     ])
 
 
-def second_tab_layout(app) -> html.Div:
+def second_tab_layout() -> html.Div:
     labels_and_ids = zip(['Length of Time Homeless', 'Health Scale', 'Risk and Barriers', 'Household Type', 'Living Situation'],
                          ['dropdown-lothomeless', 'dropdown-healthscale', 'dropdown-risksandbarriers', 'dropdown-householdtype', 'dropdown-livingsituation'])
     questions = [Questions.LOT_HOMELESS, Questions.HEALTH_SCALE, Questions.RISKS_AND_BARRIERS, Questions.HOUSEHOLD_TYPE, Questions.LIVING_SITUATION]
@@ -99,21 +101,21 @@ def second_tab_layout(app) -> html.Div:
     for label, id in labels_and_ids:
         children_.append(render_tab_w_dropdown(label, id, questions[i]))
         i += 1
-
-    @app.callback(Output('explore-pva-graph', 'figure'),
-                [Input('dropdown-lothomeless', 'value'),
-                Input('dropdown-healthscale', 'value'),
-                Input('dropdown-risksandbarriers', 'value'),
-                Input('dropdown-householdtype', 'value'),
-                Input('dropdown-livingsituation', 'value')])
-    def update_graph(dropdown_lothomeless, dropdown_healthscale, dropdown_risksandbarriers, dropdown_householdtype, dropdown_livingsituation):
-            # Combine the dropdown values into a single parameter if needed
-        col_name = dropdown_lothomeless or dropdown_healthscale or dropdown_risksandbarriers or dropdown_householdtype or dropdown_livingsituation
-        # create a plot based on the selected dropdown options
-        fig = tab_2_graphs.create_plot(col_name)
-        return fig
-
-
+    # @app.callback(Output('explore-pva-graph', 'figure'),
+    #             [Input('dropdown-lothomeless', 'value'),
+    #             Input('dropdown-healthscale', 'value'),
+    #             Input('dropdown-risksandbarriers', 'value'),
+    #             Input('dropdown-householdtype', 'value'),
+    #             Input('dropdown-livingsituation', 'value')])
+    # def update_graph(dropdown_lothomeless, dropdown_healthscale, dropdown_risksandbarriers, dropdown_householdtype, dropdown_livingsituation):
+    #     print('callback triggered')
+    #     # Combine the dropdown values into a single parameter if needed
+    #     col_name = str(dropdown_lothomeless) + str(dropdown_healthscale) + str(dropdown_risksandbarriers) + str(dropdown_householdtype) + str(dropdown_livingsituation)
+    #     print(col_name)
+    #     # create a plot based on the selected dropdown options
+    #     fig = tab_2_graphs.create_plot(col_name)
+    #     return fig
+    
     return html.Div([
         dcc.Tabs(id='explore-pva-tabs', value='explore-pva-tabs', vertical=True, children=children_),
         dcc.Graph(id='explore-pva-graph'),

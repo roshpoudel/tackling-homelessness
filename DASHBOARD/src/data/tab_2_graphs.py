@@ -6,7 +6,7 @@ import pkg_resources
 import json
 
 
-file_path1 = pkg_resources.resource_filename('data', 'original_df.json')
+file_path1 = pkg_resources.resource_filename('data', 'cleaned_data.json')
 
 df = load_dataframe(file_path1)
 
@@ -20,14 +20,16 @@ def create_plot(col_name: str) -> go.Figure:
     df["Demographic Grouping"] = df[["race", "gender"]].apply("-".join, axis=1)
 
     fig = go.Figure()
-    if col_name in columns_mapping.keys():
+    if col_name in columns_mapping:
         col_name = columns_mapping[col_name]
 
     print(col_name)
     df1=df.groupby(['Demographic Grouping', col_name]).count()['age'].reset_index(name='counts')
-    fig.add_trace(px.bar(df1, x="Demographic Grouping", y="counts", color=col_name, title="Distribution of "+col_name+" by race and gender").data[0])
-    fig.update_layout(bargap=0.5, title=f"Distribution of responses to {tmp} by race and gender")
+    fig = px.bar(df1, x="Demographic Grouping", y="counts", color=col_name, title="Distribution of "+tmp+" by race and gender")
+    fig.update_layout(bargap=0.5,
+                      title_x=0.5,
+                      height=600,
+                      width=1400,)
     return fig
 
-create_plot("LOT Homeless")
 
