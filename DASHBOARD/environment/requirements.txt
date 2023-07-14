@@ -1,0 +1,7 @@
+dash
+dash-bootstrap-components
+pandas
+plotly
+python 3.8
+matplotlib
+seaborn
