@@ -2,7 +2,7 @@ from dash import Dash, html, dcc
 
 
 def style_dropdown():
-    return {'width': '500px'}
+    return {'width': '500px', 'padding-top': '20px'}
 
 
 def render_tab_w_dropdown(dropdown_tab_label: str, i_d: str, options_list: list) -> dcc.Tab:
@@ -15,7 +15,7 @@ def render_tab_w_dropdown(dropdown_tab_label: str, i_d: str, options_list: list)
                 options=[{"label": option, "value": option} for option in options_list],
                 placeholder='Select',
                 multi=False,
-                optionHeight=100,
+                optionHeight=80,
                 style=style_dropdown()
             )
         ]
