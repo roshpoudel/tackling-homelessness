@@ -1,14 +1,14 @@
+# Importing libraries
 from dash import html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 from components.questions_dropdown import render_tab_w_dropdown
 from data import tab_1_graphs, tab_2_graphs, tab_3_graphs
 
 
-# import sys
-# sys.path.append('DASHBOARD/assets')
-
-
 class Questions:
+    """
+    This class contains all the questions that are used in the dropdowns.
+    """
     LOT_HOMELESS = [
         "LOT Homeless"]
     HEALTH_SCALE = [
@@ -55,6 +55,9 @@ styles = {
 
 
 def home_page_layout() -> html.Div:
+    """
+    Returns the layout of the home page.
+    """
     return html.Div(
         style=styles['container'],
         children=[
@@ -98,9 +101,9 @@ def home_page_layout() -> html.Div:
 
 
 def first_tab_layout() -> html.Div:
-    # def graphs_layout(ids: list) -> dbc.Row:
-    #     return dbc.Row([dbc.Col(dcc.Loading(dcc.Graph(id=i_d), type='circle'), width=6) for i_d in ids])
-
+    """
+    Returns the layout of the first tab.
+    """
     return html.Div([
         html.H3('Demographics in PIT and PVA', style={
                 'text-align': 'center', 'margin-bottom': '20px'}),
@@ -158,6 +161,9 @@ def first_tab_layout() -> html.Div:
 
 
 def second_tab_layout() -> html.Div:
+    """
+    Returns the layout of the second tab.
+    """
     labels_and_ids = zip(['Length of Time Homeless', 'Health Scale', 'Risk and Barriers', 'Household Type', 'Living Situation'],
                          ['dropdown-lothomeless', 'dropdown-healthscale', 'dropdown-risksandbarriers', 'dropdown-householdtype', 'dropdown-livingsituation'])
     questions = [Questions.LOT_HOMELESS, Questions.HEALTH_SCALE,
@@ -179,8 +185,14 @@ def second_tab_layout() -> html.Div:
 
 
 class ThirdTab:
+    """
+    Class for the third tab.
+    """
     @classmethod
     def third_tab_layout(cls) -> html.Div:
+        """
+        Returns the layout of the third tab.
+        """
         tabs_and_values = zip(['Length of Time Homeless', 'Health Scale', 'Risk and Barriers', 'Household Type', 'Living Situation'],
                               ['findings-lothomeless', 'findings-healthscale', 'findings-risksandbarriers', 'findings-householdtype', 'findings-livingsituation'])
         return html.Div([
@@ -208,6 +220,9 @@ class ThirdTab:
 
     @staticmethod
     def lothomeless_content() -> html.Div:
+        """
+        Returns the content of the Length of Time Homeless tab.
+        """
         return html.Div([
             html.P("The LOT Homeless score occupies the 10,000s place, or the top priority category. The following graph shows the distribution of scores for this category:"),
             dcc.Graph(id='findings-lothomeless-graph',
@@ -228,6 +243,9 @@ class ThirdTab:
 
     @staticmethod
     def healthscale_content() -> html.Div:
+        """
+        Returns the content of the Health Scale tab.
+        """
         return html.Div([
             html.P("The Health Scale score occupies the 1000s place, or the second highest priority category. The following graph shows the distribution of scores for this category:"),
             dcc.Graph(id='findings-healthscale-graph',
@@ -240,6 +258,9 @@ class ThirdTab:
 
     @staticmethod
     def risksandbarriers_content() -> html.Div:
+        """
+        Returns the content of the Risks and Barriers tab.
+        """
         return html.Div([
             html.P("The Risks and Barriers score occupies the 100s place, or the third highest priority category. The following graph shows the distribution of scores for this category:"),
             dcc.Graph(id='findings-risksandbarriers-graph',
@@ -259,6 +280,9 @@ class ThirdTab:
 
     @staticmethod
     def householdtype_content() -> html.Div:
+        """
+        Returns the content of the Household Type tab.
+        """
         return html.Div([
             html.P("The Household Type score occupies the 10s place, or the fourth highest priority category. The following graph shows the distribution of scores for this category:"),
             html.P("The \"Household Type\" score ranges from 1-9, with values 8 and 9 denoting either a single or family, respectively, fleeing domestic violence."),
@@ -288,6 +312,9 @@ class ThirdTab:
 
     @staticmethod
     def livingsituation_content() -> html.Div:
+        """
+        Returns the content of the Living Situation tab.
+        """
         return html.Div([
             html.P("The Living Situation score occupies the 1s place, or the fifth highest priority category. The following graph shows the distribution of scores for this category:"),
             dcc.Graph(id='findings-livingsituation-graph',
@@ -301,6 +328,9 @@ class ThirdTab:
 
 
 def fourth_tab_layout() -> html.Div:
+    """
+    Returns the content of the fourth tab.
+    """
     return html.Div([
         html.H3('Recommendation and Report', style={
                 'text-align': 'center', 'margin-bottom': '20px'}),
@@ -311,6 +341,9 @@ def fourth_tab_layout() -> html.Div:
 
 
 def fifth_tab_layout() -> html.Div:
+    """
+    Returns the content of the fifth tab.
+    """
     image_filename = 'link to image'
     return html.Div(
         style=styles['container'],

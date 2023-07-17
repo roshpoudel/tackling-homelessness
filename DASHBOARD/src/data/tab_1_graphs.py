@@ -1,9 +1,11 @@
+#Importing the libraries
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 from data.loader import load_dataframe
 import pkg_resources
 
+# Load the data
 file_path1 = pkg_resources.resource_filename('data', 'cleaned_data.json')
 file_path2 = pkg_resources.resource_filename('data', 'original_df.json')
 
@@ -290,7 +292,6 @@ def sex_pit_vs_pva_graph_bar() -> go.Figure:
     # Merge PVA and PIT data
     value_counts_df = df['gender'].value_counts(
     ).reset_index().rename(columns={'gender': 'sex'})
-    value_counts_df
     value_counts_df.columns = ['sex', 'PVA Count']
     sex_demographics = value_counts_df.merge(
         PIT_sex, how='inner', on='sex', sort=True)
@@ -324,7 +325,6 @@ def sex_pit_vs_pva_findings_graph_bar():
     # Merge PVA and PIT data
     value_counts_df = df['gender'].value_counts(
     ).reset_index().rename(columns={'gender': 'sex'})
-    value_counts_df
     value_counts_df.columns = ['sex', 'PVA Count']
     sex_demographics = value_counts_df.merge(
         PIT_sex, how='inner', on='sex', sort=True)

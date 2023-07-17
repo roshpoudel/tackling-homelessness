@@ -1,8 +1,21 @@
+"""
+This module contains the function to create the main layout of the dashboard.
+"""
+
 from dash import Dash, html, dcc
 from components.all_tabs import second_tab_layout
 
 
 def create_main_layout(app: Dash) -> html.Div:
+    """
+    This function creates the main layout of the dashboard.
+
+    Args:
+    app (Dash): The Dash app instance.
+
+    Returns:
+    html.Div: The main layout of the dashboard.
+    """
     return html.Div([
         dcc.Tabs(id='tabs', value='tabs', children=[
             dcc.Tab(label='Home', value='tab-0'),

@@ -4,6 +4,16 @@ import json
 
 
 def load_dataframe(path: str, sheetname: str = None) -> pd.DataFrame:
+    """
+    Load data from a file and return a pandas dataframe.
+
+    Args:
+        path (str): The path to the file.
+        sheetname (str, optional): The name of the sheet to load (if loading from an excel file). Defaults to None.
+
+    Returns:
+        pd.DataFrame: The loaded data as a pandas dataframe.
+    """
     if os.path.splitext(path)[1] == '.json':
         # Load the JSON file
         with open(path, 'r') as f:

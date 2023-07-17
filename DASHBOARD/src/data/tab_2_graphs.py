@@ -21,6 +21,16 @@ with open(mapping_file_path, 'r') as f:
 
 
 def create_plot(col_name: str, y_axis: str) -> go.Figure:
+    """
+    This function creates a plotly bar chart for the given column name and y-axis type.
+
+    Args:
+    col_name (str): The name of the column to be plotted.
+    y_axis (str): The type of y-axis to be used. It can be either 'count' or 'percent'.
+
+    Returns:
+    go.Figure: A plotly figure object.
+    """
     tmp = col_name
     # adding column which combines race and sex
     df["Demographic Grouping"] = df[["race", "gender"]].apply("-".join, axis=1)
