@@ -12,7 +12,8 @@ def render_tab_w_dropdown(dropdown_tab_label: str, i_d: str, options_list: list)
         children=[
             dcc.Dropdown(
                 id=i_d,
-                options=[{"label": option, "value": option} for option in options_list],
+                options=[{"label": option, "value": option}
+                         for option in options_list],
                 placeholder='Select',
                 multi=False,
                 optionHeight=80,

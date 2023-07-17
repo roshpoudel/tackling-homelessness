@@ -12,5 +12,6 @@ def create_main_layout(app: Dash) -> html.Div:
             dcc.Tab(label='Recommendation and Report', value='tab-4'),
             dcc.Tab(label='About us', value='tab-5')
         ], style={'position': 'fixed', 'top': '0', 'left': '0', 'right': '0', 'zIndex': '999'}),
-        html.Div(id='tabs-content', style={'padding': '20px', 'margin-top':'100px'},),
+        html.Div(id='tabs-content',
+                 style={'padding': '20px', 'margin-top': '100px'},),
     ])

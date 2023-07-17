@@ -3,6 +3,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
+
 class Plotter:
     """
     Base class for creating plotter objects.
@@ -47,7 +48,8 @@ class Plotter:
                 valid_columns.append(column)
 
         # Create the subplots grid
-        fig = make_subplots(rows=self.num_rows, cols=self.num_cols, subplot_titles=valid_columns)
+        fig = make_subplots(rows=self.num_rows,
+                            cols=self.num_cols, subplot_titles=valid_columns)
 
         # Loop through each valid column
         for i, column in enumerate(valid_columns):
@@ -80,7 +82,8 @@ class Plotter:
             subplot_title.hovertext = subplot_title.text
 
             # Truncate the title if needed
-            truncated_title = self.truncate_string(subplot_title.text, max_title_length)
+            truncated_title = self.truncate_string(
+                subplot_title.text, max_title_length)
             fig.layout.annotations[i].text = truncated_title
 
         return fig
@@ -98,7 +101,8 @@ class Plotter:
         hist_trace = go.Histogram(x=self.df[column], name=column)
 
         # Add the trace to the subplot
-        fig.add_trace(hist_trace, row=(subplot_index - 1) // self.num_cols + 1, col=(subplot_index - 1) % self.num_cols + 1)
+        fig.add_trace(hist_trace, row=(subplot_index - 1) //
+                      self.num_cols + 1, col=(subplot_index - 1) % self.num_cols + 1)
 
     def kdeplot(self, column, fig, subplot_index):
         """
@@ -120,8 +124,9 @@ class Plotter:
         )
 
         # Add the trace to the subplot
-        fig.add_trace(kde_trace, row=(subplot_index - 1) // self.num_cols + 1, col=(subplot_index - 1) % self.num_cols + 1)
+        fig.add_trace(kde_trace, row=(subplot_index - 1) //
+                      self.num_cols + 1, col=(subplot_index - 1) % self.num_cols + 1)
 
 # Create a sample DataFrame
 #plotter = Plotter(df, num_cols=3)
-#plotter.plot_plots().show()
+# plotter.plot_plots().show()

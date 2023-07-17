@@ -50,13 +50,13 @@ number_per_category = [568, 1131, 12, 5, 18]
 data = {
     'sex': sexes,
     'PIT Count': number_per_category
-    }
+}
 # Create the DataFrame
 PIT_sex_expanded = pd.DataFrame(data)
 
-#Had to create a new PIT dataset to match with the PVA dataset
-#other includes Transgender and Questioning.
-sex = ['FEMALE','MALE','OTHER',]
+# Had to create a new PIT dataset to match with the PVA dataset
+# other includes Transgender and Questioning.
+sex = ['FEMALE', 'MALE', 'OTHER', ]
 number_per_sex = [568, 1131, 36]
 
 # Create a dictionary with the data
@@ -73,7 +73,8 @@ PIT_sex = pd.DataFrame(data)
 
 def age_pit_graph_pie() -> go.Figure:
     fig = px.pie(PIT_age, values='PIT Count', names='Age Groups', hole=0.3)
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
     fig.update_layout(
         title='Distribution of Number of People by Age Group in PIT (2023)',
         title_x=0.5,
@@ -87,7 +88,8 @@ def age_pit_graph_pie() -> go.Figure:
 
 def age_pva_graph_pie() -> go.Figure:
     fig = px.pie(df['AGE_GROUP'], names='AGE_GROUP', hole=0.3)
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
     fig.update_layout(
         title='Distribution of People by Age in the PVA (2023)',
         title_x=0.5,
@@ -129,30 +131,42 @@ def age_pit_vs_pva_graph_bar() -> go.Figure:
     fig.update_layout(bargap=0.5, title_x=0.5,)
     return fig
 
+
 def age_pit_vs_pva_findings_graph_bar():
     # Merge PVA and PIT data
     value_counts_df = df['AGE_GROUP'].value_counts().reset_index()
     value_counts_df.columns = ['Age Groups', 'PVA Count']
     age_demographics = value_counts_df.merge(
         PIT_age, how='inner', on='Age Groups', sort=True)
-    
-    age_demographics_diff=age_demographics.copy()
-    age_demographics_diff['PIT Total'] = age_demographics_diff['PIT Count'].sum()
-    age_demographics_diff['PVA Total'] = age_demographics_diff['PVA Count'].sum()
-    age_demographics_diff['PIT Percentage'] = (age_demographics_diff['PIT Count'] / age_demographics_diff['PIT Total']) * 100
-    age_demographics_diff['PIT Percentage'] = age_demographics_diff['PIT Percentage'].round(2)
-    age_demographics_diff['PVA Percentage'] = (age_demographics_diff['PVA Count'] / age_demographics_diff['PVA Total']) * 100
-    age_demographics_diff['PVA Percentage'] = age_demographics_diff['PVA Percentage'].round(2)
-    age_demographics_diff['Percent Difference'] = age_demographics_diff['PIT Percentage'] - age_demographics_diff['PVA Percentage']
-    age_demographics_diff['Difference'] = age_demographics_diff['PIT Count'] - age_demographics_diff['PVA Count']
-    fig = px.bar(age_demographics_diff, x="Age Groups", y="Percent Difference", title="Difference between PIT and PVA by Age Group (PIT-PVA)")
+
+    age_demographics_diff = age_demographics.copy()
+    age_demographics_diff['PIT Total'] = age_demographics_diff['PIT Count'].sum(
+    )
+    age_demographics_diff['PVA Total'] = age_demographics_diff['PVA Count'].sum(
+    )
+    age_demographics_diff['PIT Percentage'] = (
+        age_demographics_diff['PIT Count'] / age_demographics_diff['PIT Total']) * 100
+    age_demographics_diff['PIT Percentage'] = age_demographics_diff['PIT Percentage'].round(
+        2)
+    age_demographics_diff['PVA Percentage'] = (
+        age_demographics_diff['PVA Count'] / age_demographics_diff['PVA Total']) * 100
+    age_demographics_diff['PVA Percentage'] = age_demographics_diff['PVA Percentage'].round(
+        2)
+    age_demographics_diff['Percent Difference'] = age_demographics_diff['PIT Percentage'] - \
+        age_demographics_diff['PVA Percentage']
+    age_demographics_diff['Difference'] = age_demographics_diff['PIT Count'] - \
+        age_demographics_diff['PVA Count']
+    fig = px.bar(age_demographics_diff, x="Age Groups", y="Percent Difference",
+                 title="Difference between PIT and PVA by Age Group (PIT-PVA)")
     fig.update_layout(bargap=0.5, title_x=0.5)
     return fig
+
 
 def race_pit_graph_pie() -> go.Figure:
     fig = px.pie(PIT_race, values='PIT Count', names='race', hole=0.3)
 
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
 
     fig.update_layout(
         title='Distribution of People by Race in the PIT (2023)',
@@ -164,7 +178,8 @@ def race_pit_graph_pie() -> go.Figure:
 
 def race_pva_graph_pie() -> go.Figure:
     fig = px.pie(original_df['race'], names='race', hole=0.3)
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
     fig.update_layout(
         title='Distribution of Individuals by Race in the PVA (2023)',
         legend_title='Race',
@@ -208,6 +223,7 @@ def race_pit_vs_pva_graph_bar() -> go.Figure:
     fig.update_layout(bargap=0.5,)
     return fig
 
+
 def race_pit_vs_pva_findings_graph_bar():
     # skip this question became "other"
     original_df['race'] = original_df['race'].apply(
@@ -218,24 +234,35 @@ def race_pit_vs_pva_findings_graph_bar():
     value_counts_df.columns = ['race', 'PVA Count']
     race_demographics = value_counts_df.merge(
         PIT_race, how='inner', on='race', sort=True)
-    
+
     race_demographics_diff = race_demographics.copy()
-    race_demographics_diff['PIT Total'] = race_demographics_diff['PIT Count'].sum()
-    race_demographics_diff['PVA Total'] = race_demographics_diff['PVA Count'].sum()
-    race_demographics_diff['PIT Percentage'] = (race_demographics_diff['PIT Count'] / race_demographics_diff['PIT Total']) * 100
-    race_demographics_diff['PIT Percentage'] = race_demographics_diff['PIT Percentage'].round(2)
-    race_demographics_diff['PVA Percentage'] = (race_demographics_diff['PVA Count'] / race_demographics_diff['PVA Total']) * 100
-    race_demographics_diff['PVA Percentage'] = race_demographics_diff['PVA Percentage'].round(2)
-    race_demographics_diff['Percent Difference'] = race_demographics_diff['PIT Percentage'] - race_demographics_diff['PVA Percentage']
-    race_demographics_diff['Difference'] = race_demographics_diff['PIT Count'] - race_demographics_diff['PVA Count']
-    fig = px.bar(race_demographics_diff, x="race", y="Percent Difference", title="Distribution of Individuals by Race")
+    race_demographics_diff['PIT Total'] = race_demographics_diff['PIT Count'].sum(
+    )
+    race_demographics_diff['PVA Total'] = race_demographics_diff['PVA Count'].sum(
+    )
+    race_demographics_diff['PIT Percentage'] = (
+        race_demographics_diff['PIT Count'] / race_demographics_diff['PIT Total']) * 100
+    race_demographics_diff['PIT Percentage'] = race_demographics_diff['PIT Percentage'].round(
+        2)
+    race_demographics_diff['PVA Percentage'] = (
+        race_demographics_diff['PVA Count'] / race_demographics_diff['PVA Total']) * 100
+    race_demographics_diff['PVA Percentage'] = race_demographics_diff['PVA Percentage'].round(
+        2)
+    race_demographics_diff['Percent Difference'] = race_demographics_diff['PIT Percentage'] - \
+        race_demographics_diff['PVA Percentage']
+    race_demographics_diff['Difference'] = race_demographics_diff['PIT Count'] - \
+        race_demographics_diff['PVA Count']
+    fig = px.bar(race_demographics_diff, x="race", y="Percent Difference",
+                 title="Distribution of Individuals by Race")
     fig.update_layout(bargap=0.5)
     return fig
+
 
 def sex_pit_graph_pie() -> go.Figure:
     fig = px.pie(PIT_sex_expanded, values='PIT Count', names='sex', hole=0.3)
 
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
 
     fig.update_layout(
         title='Distribution of People by Sex in the PIT',
@@ -248,7 +275,8 @@ def sex_pit_graph_pie() -> go.Figure:
 def sex_pva_graph_pie() -> go.Figure:
     fig = px.pie(original_df['gender'], names='gender', hole=0.3)
 
-    fig.update_traces(textposition='outside', textinfo='percent+label', hovertemplate='%{label}<br>Count = %{value}')
+    fig.update_traces(textposition='outside', textinfo='percent+label',
+                      hovertemplate='%{label}<br>Count = %{value}')
 
     fig.update_layout(
         title='Distribution of Individuals by Sex in the PVA',
@@ -257,9 +285,11 @@ def sex_pva_graph_pie() -> go.Figure:
     )
     return fig
 
+
 def sex_pit_vs_pva_graph_bar() -> go.Figure:
     # Merge PVA and PIT data
-    value_counts_df = df['gender'].value_counts().reset_index().rename(columns={'gender':'sex'})
+    value_counts_df = df['gender'].value_counts(
+    ).reset_index().rename(columns={'gender': 'sex'})
     value_counts_df
     value_counts_df.columns = ['sex', 'PVA Count']
     sex_demographics = value_counts_df.merge(
@@ -285,27 +315,38 @@ def sex_pit_vs_pva_graph_bar() -> go.Figure:
 
     # Create and show the bar plot
     fig = px.bar(sex_demographics, x='Type', y='Percentage',
-                color='sex', title='Distribution of Individuals by Sex')
+                 color='sex', title='Distribution of Individuals by Sex')
     fig.update_layout(bargap=0.5,)
     return fig
 
+
 def sex_pit_vs_pva_findings_graph_bar():
     # Merge PVA and PIT data
-    value_counts_df = df['gender'].value_counts().reset_index().rename(columns={'gender':'sex'})
+    value_counts_df = df['gender'].value_counts(
+    ).reset_index().rename(columns={'gender': 'sex'})
     value_counts_df
     value_counts_df.columns = ['sex', 'PVA Count']
     sex_demographics = value_counts_df.merge(
         PIT_sex, how='inner', on='sex', sort=True)
-    
-    sex_demographics_diff=sex_demographics.copy()
-    sex_demographics_diff['PIT Total'] = sex_demographics_diff['PIT Count'].sum()
-    sex_demographics_diff['PVA Total'] = sex_demographics_diff['PVA Count'].sum()
-    sex_demographics_diff['PIT Percentage'] = (sex_demographics_diff['PIT Count'] / sex_demographics_diff['PIT Total']) * 100
-    sex_demographics_diff['PIT Percentage'] = sex_demographics_diff['PIT Percentage'].round(2)
-    sex_demographics_diff['PVA Percentage'] = (sex_demographics_diff['PVA Count'] / sex_demographics_diff['PVA Total']) * 100
-    sex_demographics_diff['PVA Percentage'] = sex_demographics_diff['PVA Percentage'].round(2)
-    sex_demographics_diff['Percent Difference'] = sex_demographics_diff['PIT Percentage'] - sex_demographics_diff['PVA Percentage']
-    sex_demographics_diff['Difference'] = sex_demographics_diff['PIT Count'] - sex_demographics_diff['PVA Count']
-    fig = px.bar(sex_demographics_diff, x="sex", y="Percent Difference", title="Difference between PIT and PVA by Sex (PIT-PVA)")
+
+    sex_demographics_diff = sex_demographics.copy()
+    sex_demographics_diff['PIT Total'] = sex_demographics_diff['PIT Count'].sum(
+    )
+    sex_demographics_diff['PVA Total'] = sex_demographics_diff['PVA Count'].sum(
+    )
+    sex_demographics_diff['PIT Percentage'] = (
+        sex_demographics_diff['PIT Count'] / sex_demographics_diff['PIT Total']) * 100
+    sex_demographics_diff['PIT Percentage'] = sex_demographics_diff['PIT Percentage'].round(
+        2)
+    sex_demographics_diff['PVA Percentage'] = (
+        sex_demographics_diff['PVA Count'] / sex_demographics_diff['PVA Total']) * 100
+    sex_demographics_diff['PVA Percentage'] = sex_demographics_diff['PVA Percentage'].round(
+        2)
+    sex_demographics_diff['Percent Difference'] = sex_demographics_diff['PIT Percentage'] - \
+        sex_demographics_diff['PVA Percentage']
+    sex_demographics_diff['Difference'] = sex_demographics_diff['PIT Count'] - \
+        sex_demographics_diff['PVA Count']
+    fig = px.bar(sex_demographics_diff, x="sex", y="Percent Difference",
+                 title="Difference between PIT and PVA by Sex (PIT-PVA)")
     fig.update_layout(bargap=0.5)
     return fig

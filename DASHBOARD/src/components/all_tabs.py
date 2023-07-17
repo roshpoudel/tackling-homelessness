@@ -4,8 +4,8 @@ from components.questions_dropdown import render_tab_w_dropdown
 from data import tab_1_graphs, tab_2_graphs, tab_3_graphs
 
 
-import sys
-sys.path.append('DASHBOARD/assets')
+# import sys
+# sys.path.append('DASHBOARD/assets')
 
 
 class Questions:
@@ -35,22 +35,24 @@ class Questions:
                       'Fleeing DV', ]
     LIVING_SITUATION = ['Living Situation']
 
+
 styles = {
-        'container': {
-            'width': '80%',
-            'margin': '0 auto',
-        },
-        'section': {
-            'margin-bottom': '30px',
-        },
-        'tab': {
-            'margin-top': '20px',
-        },
-        'image': {
-            'width': '300px',
-            'margin-top': '20px',
-        },
-    }
+    'container': {
+        'width': '80%',
+        'margin': '0 auto',
+    },
+    'section': {
+        'margin-bottom': '30px',
+    },
+    'tab': {
+        'margin-top': '20px',
+    },
+    'image': {
+        'width': '300px',
+        'margin-top': '20px',
+    },
+}
+
 
 def home_page_layout() -> html.Div:
     return html.Div(
@@ -313,8 +315,10 @@ def fifth_tab_layout() -> html.Div:
     return html.Div(
         style=styles['container'],
         children=[
-            html.H3('About US', style={'text-align': 'center', 'margin-bottom': '20px'}),
-            html.Img(src=image_filename, alt='Image of the four Datalab fellows who worked on this project', style=styles['image']),
+            html.H3('About US', style={
+                    'text-align': 'center', 'margin-bottom': '20px'}),
+            html.Img(src=image_filename,
+                     alt='Image of the four Datalab fellows who worked on this project', style=styles['image']),
             html.Hr(),
             html.P("We are a team of four DataLab fellows partnering with the Chattanooga Regional Homeless Coalition in their efforts to ensure equitable access to resources for the Homeless Population. DataLab is a prestigious summer fellowship program hosted by the University of the South in Sewanee, TN. It focuses on utilizing data science for social good. We are one of five teams partnering with government agencies and non-profit organizations to promote data-informed decision-making."),
             html.P("We were lucky to receive guidance throughout the fellowship from our mentors, Kit Rodolfa, Research Director at Stanford RegLab, and Chris Silver, Associate Professor of Psychology at The University of the South. We received additional help and guidance from our staff mentor, Hallie Rutten, University of the South C'23.")
