@@ -4,13 +4,18 @@ import pandas as pd
 from data.loader import load_dataframe
 import pkg_resources
 import json
+import os
 
 
 file_path1 = pkg_resources.resource_filename('data', 'cleaned_data.json')
 
 df = load_dataframe(file_path1)
 
-with open('/Users/roshan/Documents/DLProjectWork/Fighting-Homelessness-2023/DASHBOARD/src/utils/columns_mapping.json', 'r') as f:
+file_path = os.path.abspath(__file__)
+dir_path = os.path.dirname(file_path)
+mapping_file_path = os.path.join(dir_path, '..', 'utils', 'columns_mapping.json')
+
+with open(mapping_file_path, 'r') as f:
     columns_mapping = json.load(f)
 
 

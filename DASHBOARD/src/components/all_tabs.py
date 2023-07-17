@@ -309,7 +309,7 @@ def fourth_tab_layout() -> html.Div:
 
 
 def fifth_tab_layout() -> html.Div:
-    image_filename = 'aboutus.png'
+    image_filename = ''
     return html.Div(
         style=styles['container'],
         children=[
