@@ -4,6 +4,7 @@ from components.main_layout import create_main_layout
 from components.all_tabs import home_page_layout, first_tab_layout, second_tab_layout, ThirdTab, fourth_tab_layout, fifth_tab_layout
 from data import tab_2_graphs
 import plotly.graph_objects as go
+from flask import Flask, send_from_directory
 
 
 def main() -> None:
@@ -67,7 +68,7 @@ def main() -> None:
     def update_findings_tabs(findings_tabs):
         return tuple(func() if tab == findings_tabs else None for tab, func in tab_functions.items())
 
-        
+
     run_server(app)
 
 
@@ -77,7 +78,7 @@ def create_app() -> Dash:
     return app
 
 def run_server(app: Dash) -> None:
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8050)
 
 
 if __name__ == "__main__":
