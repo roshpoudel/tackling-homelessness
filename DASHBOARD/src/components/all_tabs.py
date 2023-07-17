@@ -303,13 +303,13 @@ def fourth_tab_layout() -> html.Div:
         html.H3('Recommendation and Report', style={
                 'text-align': 'center', 'margin-bottom': '20px'}),
         html.P('Here is a detailed report on our methodologies and findings from our analysis on the PIT, PVA and VISPDAT datasets.'),
-        html.A('Download Report', href='../assets/EvaluativeReport.pdf',
+        html.A('Download Report', href='assets/evalreport.pdf',
                download='evalreport.pdf'),
     ])
 
 
 def fifth_tab_layout() -> html.Div:
-    image_filename = ''
+    image_filename = 'link to image'
     return html.Div(
         style=styles['container'],
         children=[
