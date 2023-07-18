@@ -349,12 +349,13 @@ def fifth_tab_layout() -> html.Div:
     """
     image_style = styles['image']
     div_style = styles['div']
-    linkedin_logo_style = {'height': '20px', 'width': '20px'}
+    linkedin_logo_style = {'height': '20px', 'width': '25px'}
+    datalab_logo_style = {'height': '50px', 'width': 'auto', 'float': 'right', 'margin-top': '-10px'}
 
     return html.Div(
         style=styles['container'],
         children=[
-            html.H3('About US', style={
+                html.H3([html.A(html.Img(src='assets/images/datalab_logo.jpeg', style=datalab_logo_style), href='https://new.sewanee.edu/sewanee-datalab/'), 'About US'], style={
                     'text-align': 'center', 'margin-bottom': '20px'}),
             html.Hr(),
             html.P("We are a team of four DataLab fellows partnering with the Chattanooga Regional Homeless Coalition in their efforts to ensure equitable access to resources for the Homeless Population. DataLab is a prestigious summer fellowship program hosted by the University of the South in Sewanee, TN. It focuses on utilizing data science for social good. We are one of five teams partnering with government agencies and non-profit organizations to promote data-informed decision-making."),
