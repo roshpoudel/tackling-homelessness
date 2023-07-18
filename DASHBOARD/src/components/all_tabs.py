@@ -3,7 +3,7 @@ from dash import html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 from components.questions_dropdown import render_tab_w_dropdown
 from data import tab_1_graphs, tab_2_graphs, tab_3_graphs
-
+import os
 
 class Questions:
     """
@@ -48,8 +48,12 @@ styles = {
         'margin-top': '20px',
     },
     'image': {
-        'width': '300px',
-        'margin-top': '20px',
+        'width': '400px',
+        'margin-top': '40px',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        'margin-bottom': '40px',
+        'display': 'block'
     },
 }
 
@@ -333,10 +337,12 @@ def fourth_tab_layout() -> html.Div:
     """
     return html.Div([
         html.H3('Recommendation and Report', style={
-                'text-align': 'center', 'margin-bottom': '20px'}),
+                'text-align': 'center', 'margin-bottom': '40px'}),
         html.P('Here is a detailed report on our methodologies and findings from our analysis on the PIT, PVA and VISPDAT datasets.'),
         html.A('Download Report', href='assets/evalreport.pdf',
                download='evalreport.pdf'),
+        html.Hr(),
+        html.Iframe(src='assets/evalreport.pdf', width='100%', height='600px')
     ])
 
 
@@ -344,7 +350,8 @@ def fifth_tab_layout() -> html.Div:
     """
     Returns the content of the fifth tab.
     """
-    image_filename = 'link to image'
+    image_filename = 'assets/images/aboutus.jpg'
+
     return html.Div(
         style=styles['container'],
         children=[
