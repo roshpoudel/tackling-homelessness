@@ -347,7 +347,6 @@ def fifth_tab_layout() -> html.Div:
     """
     Returns the content of the fifth tab.
     """
-    image_filename = 'assets/images/aboutus.jpg'
     image_style = styles['image']
     div_style = styles['div']
     linkedin_logo_style = {'height': '20px', 'width': '20px'}
@@ -357,8 +356,6 @@ def fifth_tab_layout() -> html.Div:
         children=[
             html.H3('About US', style={
                     'text-align': 'center', 'margin-bottom': '20px'}),
-            # html.Img(src=image_filename,
-            #          alt='Image of the four Datalab fellows who worked on this project', style=styles['image']),
             html.Hr(),
             html.P("We are a team of four DataLab fellows partnering with the Chattanooga Regional Homeless Coalition in their efforts to ensure equitable access to resources for the Homeless Population. DataLab is a prestigious summer fellowship program hosted by the University of the South in Sewanee, TN. It focuses on utilizing data science for social good. We are one of five teams partnering with government agencies and non-profit organizations to promote data-informed decision-making."),
             html.P("We were lucky to receive guidance throughout the fellowship from our mentors, Kit Rodolfa, Research Director at Stanford RegLab, and Chris Silver, Associate Professor of Psychology at The University of the South. We received additional help and guidance from our staff mentor, Hallie Rutten, University of the South C'23."),
