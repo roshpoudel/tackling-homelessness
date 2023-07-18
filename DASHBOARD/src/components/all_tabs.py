@@ -368,7 +368,7 @@ def fifth_tab_layout() -> html.Div:
                     html.Img(src='assets/images/Roshan.jpg',
                              alt='Profile picture of team member 1', style=image_style),
                     html.H5('Roshan Poudel'),
-                    html.P('Email: pdlroshan0@gmail.com'),
+                    html.P('Email: pouder0@sewanee.edu'),
                     html.A(html.Img(src='assets/images/linkedin.png', style= linkedin_logo_style), href='https://www.linkedin.com/in/roshpdl/')
                 ], style=div_style),
                 html.Div([
