@@ -4,7 +4,11 @@ This repository contains the code for the dashboard that we developed for the Ch
 
 ## Installation
 
-This dashboard is primarily built on Plotly Dash framework, which is a Python web application framework for building interactive web-based dashboards. It uses other Python libraries like pandas, json, os, and math for data manipulation and analysis. To run this program in Dash, you need to install the required libraries by running the following command in your terminal:
+This dashboard is primarily built on Plotly Dash framework, which is a Python web application framework for building interactive web-based dashboards. It uses other Python libraries like pandas, json, os, and math for data manipulation and analysis. First you need to install python in your computer. You can follow the instructions from here: 
+
+> https://www.python.org/downloads/
+
+To run this program in Dash, you need to install the required libraries by running the following command in your terminal:
 
 ```pip install dash dash-bootstrap-components pandas plotly matplotlib seaborn```
 
@@ -40,9 +44,6 @@ To view the insights about the PVA and PIT and the findings, follow these steps:
 4. Open your web browser and go to `http://localhost:8050/` to view the dashboard.
 
 You should now be able to view the insights and findings in the dashboard. Since the data is not publicly available, **unauthorized users** will not be able to view the dashboard as it would require the datasets for the graphs to show up.
-
-## License
-
 
 ## Issues and Support
 
