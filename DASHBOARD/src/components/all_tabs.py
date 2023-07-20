@@ -64,7 +64,7 @@ def home_page_layout() -> html.Div:
         children=[
             html.H3("Welcome to our Data Analysis Dashboard!", style={
                     'text-align': 'center', 'margin-bottom': '30px', }),
-            html.P("This dashboard provides insights and visualizations based on our analysis of the PIT (Point-in-Time) and PVA (VI-SPDAT) datasets."),
+            html.P("This dashboard provides insights and visualizations based on our analysis of the PIT (Point-in-Time) and PVA (Place Value Assessment) datasets."),
             html.P("Here is an overview of the different sections you will find in our dashboard:",
                    style=styles['section']),
             html.Hr(),
