@@ -8,9 +8,14 @@ This dashboard is primarily built on Plotly Dash framework, which is a Python we
 
 > https://www.python.org/downloads/
 
+
 To run this program in Dash, you need to install the required libraries by running the following command in your terminal:
 
 ```pip install dash dash-bootstrap-components pandas plotly matplotlib seaborn```
+
+Now, clone the repository to your local machine running the following command on your terminal:
+
+```git clone https://github.com/sewaneedata/Fighting-Homelessness-2023``` 
 
 Also, if you are on a conda environment, there's a yaml file in '/environment/conda.yaml'. To create a conda environment using this file, follow these steps:
 
