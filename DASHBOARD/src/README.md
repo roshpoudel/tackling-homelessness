@@ -13,10 +13,6 @@ To run this program in Dash, you need to install the required libraries by runni
 
 ```pip install dash dash-bootstrap-components pandas plotly matplotlib seaborn```
 
-Now, clone the repository to your local machine running the following command on your terminal:
-
-```git clone https://github.com/sewaneedata/Fighting-Homelessness-2023``` 
-
 Also, if you are on a conda environment, there's a yaml file in '/environment/conda.yaml'. To create a conda environment using this file, follow these steps:
 
 1. Open a terminal window and navigate to the directory where the `conda.yaml` file is located.
@@ -40,7 +36,10 @@ Note: If you want to remove the environment, you can run the following command: 
 
 To view the insights about the PVA and PIT and the findings, follow these steps:
 
-1. Clone or download the repository to your local machine.
+1. Clone or download the repository to your local machine by running the following command on your terminal:
+
+```git clone https://github.com/sewaneedata/Fighting-Homelessness-2023```
+
 2. Navigate to the `src` directory in your terminal.
 3. Run the following command to start the dashboard:
 
