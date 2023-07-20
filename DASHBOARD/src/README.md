@@ -47,10 +47,9 @@ To view the insights about the PVA and PIT and the findings, follow these steps:
 
 4. Open your web browser and go to `http://localhost:8050/` to view the dashboard.
 
-You should now be able to view the insights and findings in the dashboard. Since the data is not publicly available, **unauthorized users** will not be able to view the dashboard as it would require the datasets for the graphs to show up.
+You should now be able to view the insights and findings in the dashboard. Since the data is not publicly available, **unauthorized users** will not be able to view the dashboard as it would require the datasets for the graphs to populate.
 
 ## Issues and Support
-
 For issues and support, please contact:
     datalab@sewanee.edu
 
