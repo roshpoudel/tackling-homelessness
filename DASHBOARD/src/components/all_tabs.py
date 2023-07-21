@@ -336,10 +336,10 @@ def fourth_tab_layout() -> html.Div:
         html.H3('Recommendation and Report', style={
                 'text-align': 'center', 'margin-bottom': '40px'}),
         html.P('Here is a detailed report on our methodologies and findings from our analysis on the PIT, PVA and VISPDAT datasets.'),
-        html.A('Download Report', href='assets/EvaluativeReport.pdf',
+        html.A('Download Report', href='assets/evaluative_report.pdf',
                download='evalreport.pdf'),
         html.Hr(),
-        html.Iframe(src='assets/EvaluativeReport.pdf', width='100%', height='600px',)
+        html.Iframe(src='assets/evaluative_report.pdf', width='100%', height='600px',)
     ])
 
 
