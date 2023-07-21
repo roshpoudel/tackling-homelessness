@@ -1,6 +1,6 @@
 # Datalab 2023 - Fighting Homelessness
 
-This repository contains the code for the dashboard that we developed for the Chattanooga Regional Homeless Coalition (CRHC), which is a lead agency of Southeast Tennessee's Continuum of Care. Our team of 21 fellows from 8 different schools around the country worked with CRHC during Datalab-2023, a "Data Science for Social Good" program at University of the South, Sewanee, TN. With mentorship from industry professionals and researchers from Stanford and UofSouth, we aimed to help CRHC make their intake survey/assessment more trauma-informed, equitable, and effective in providing essential services to unsheltered individuals in the area. This dashboard was built using Plotly Dash and provides insights into the PVA and PIT, as well as our findings. 
+This repository contains the code for the dashboard that we developed for the Chattanooga Regional Homeless Coalition (CRHC), which is a lead agency of Southeast Tennessee's Continuum of Care. Our team of 4 fellows worked with CRHC during Datalab-2023, a "Data Science for Social Good" program at University of the South, Sewanee, TN. With mentorship from industry professionals and researchers from Stanford and UofSouth, we aimed to help CRHC make their intake survey/assessment more trauma-informed, equitable, and effective in providing essential services to unsheltered individuals in the area. This dashboard was built using Plotly Dash and provides insights into the PVA and PIT, as well as our findings. 
 
 ## Installation
 
@@ -47,7 +47,7 @@ To view the insights about the PVA and PIT and the findings, follow these steps:
 
 4. Open your web browser and go to `http://localhost:8050/` to view the dashboard.
 
-You should now be able to view the insights and findings in the dashboard. Since the data is not publicly available, **unauthorized users** will not be able to view the dashboard as it would require the datasets for the graphs to show up.
+You should now be able to view the insights and findings in the dashboard. Since the data is not publicly available, **unauthorized users** will not be able to view the dashboard as it would require the datasets for the graphs to populate.
 
 ## Issues and Support
 
