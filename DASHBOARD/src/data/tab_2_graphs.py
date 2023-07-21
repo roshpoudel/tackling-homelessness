@@ -48,7 +48,7 @@ def create_plot(col_name: str, y_axis: str) -> go.Figure:
 
     if y_axis == 'count':
         fig = px.bar(df1, x="Demographic Grouping", y="counts", color=col_name,
-                     title="Distribution of "+tmp+" by race and gender (count))")
+                     title="Distribution of "+tmp+" by race and gender (count)")
     elif y_axis == 'percent':
         fig = px.bar(df1, x="Demographic Grouping", y="Percentage", color=col_name,
                      title="Distribution of "+tmp+" by race and gender (percentage)")
