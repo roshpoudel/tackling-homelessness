@@ -62,7 +62,7 @@ def home_page_layout() -> html.Div:
     return html.Div(
         style=styles['container'],
         children=[
-            html.H3("Welcome to our Data Analysis Dashboard!", style={
+            html.H3("Transforming the Path to Housing: From Bias to Balance", style={
                     'text-align': 'center', 'margin-bottom': '30px', }),
             html.P("This dashboard provides insights and visualizations based on our analysis of the PIT (Point-in-Time) and PVA (Place Value Assessment) datasets."),
             html.P("Here is an overview of the different sections you will find in our dashboard:",
@@ -108,7 +108,7 @@ def first_tab_layout() -> html.Div:
     return html.Div([
         html.H3('Demographics in PIT and PVA', style={
                 'text-align': 'center', 'margin-bottom': '20px'}),
-        dcc.Tabs(id='demographics-tabs', value='demographics-tabs', vertical=True, children=[
+        dcc.Tabs(id='demographics-tabs', value='race', vertical=True, children=[
             dcc.Tab(label='Race', value='race', children=[
                     dbc.Row([
                         dbc.Col(dcc.Loading(
@@ -178,7 +178,7 @@ def second_tab_layout() -> html.Div:
     return html.Div([
         html.H3('Explore the PVA Dataset', style={
                 'text-align': 'center', 'margin-bottom': '20px'}),
-        dcc.Tabs(id='explore-pva-tabs', value='explore-pva-tabs',
+        dcc.Tabs(id='explore-pva-tabs', value='Length of Time Homeless',
                  vertical=True, children=children_, style={'padding-right': '20px', 'padding-top': '20px'}),
         dcc.Graph(id='explore-pva-graph1'),
         dcc.Graph(id='explore-pva-graph2'),
@@ -212,7 +212,7 @@ class ThirdTab:
             html.P(
                 'The following tabs contain the findings for each of the sub-scores in the PVA dataset'),
             html.Hr(),
-            dcc.Tabs(id='findings-tabs', value='findings-tabs', vertical=True, children=[
+            dcc.Tabs(id='findings-tabs', value='findings-lothomeless', vertical=True, children=[
                 dcc.Tab(label=label_, value=value_, children=[
                     html.Div(id=value_),
                 ]) for label_, value_ in tabs_and_values

@@ -28,7 +28,7 @@ def render_tab_w_dropdown(dropdown_tab_label: str, i_d: str, options_list: list)
                 id=i_d,
                 options=[{"label": option, "value": option}
                          for option in options_list],
-                placeholder='Select',
+                value=options_list[0],
                 multi=False,
                 optionHeight=80,
                 style=style_dropdown()

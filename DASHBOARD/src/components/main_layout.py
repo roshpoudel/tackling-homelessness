@@ -17,7 +17,7 @@ def create_main_layout(app: Dash) -> html.Div:
     html.Div: The main layout of the dashboard.
     """
     return html.Div([
-        dcc.Tabs(id='tabs', value='tabs', children=[
+        dcc.Tabs(id='tabs', value='tab-0', children=[
             dcc.Tab(label='Home', value='tab-0'),
             dcc.Tab(label='Demographics', value='tab-1'),
             dcc.Tab(label='Explore PVA', value='tab-2'),
@@ -28,3 +28,4 @@ def create_main_layout(app: Dash) -> html.Div:
         html.Div(id='tabs-content',
                  style={'padding': '20px', 'margin-top': '100px'},),
     ])
+
