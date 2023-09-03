@@ -51,9 +51,7 @@ You should now be able to view the insights and findings in the dashboard. Since
 
 ## Issues and Support
 
-For issues and support, please contact:
-    datalab@sewanee.edu
-
-For code-related issues, please contact:
+For technical issues and support, please contact:
     pouder0@sewanee.edu
+
 
